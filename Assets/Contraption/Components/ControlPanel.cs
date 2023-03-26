@@ -67,8 +67,9 @@ public class ControlPanel : MonoBehaviour, IGraspable, IComponent
             transform.rotation = new Quaternion() { eulerAngles = buf_rot};
             transform.position = buf_trans.TransformPoint(buf_pos);
             
-            manager.SetVariable((RightHand.transform.localPosition.z - 0.6f) * 180f);
-            SendUpdate((RightHand.transform.position.z - 0.6f) * 180f);
+            manager.SetVariable((RightHand.transform.localPosition.z - 0.6f) *10f, "Motor");
+            manager.SetVariable((RightHand.transform.localRotation.eulerAngles.z), "Servo");
+            SendUpdate((RightHand.transform.position.z - 0.6f) * 10f );
         }
         if (follow.Update())
         {
@@ -87,11 +88,6 @@ public class ControlPanel : MonoBehaviour, IGraspable, IComponent
         manager.StopSimulation();
     }
 
-    //public void ChangeValue(Single value)
-    //{
-    //    manager.SetVariable(value);
-    //    SendUpdate(value);
-    //}
 
     private struct Message
     {

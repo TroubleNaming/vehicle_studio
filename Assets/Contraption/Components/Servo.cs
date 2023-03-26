@@ -64,15 +64,15 @@ public class Servo : MonoBehaviour, IGraspable, IComponent, IVariable
         var limits = joint.limits;
         if (Angle * 180f >= 0)
         {
-            limits.max = Angle * 180f;
+            limits.max = Angle ;
             limits.min = 0;
-            motor.targetVelocity = 360f;
+            motor.targetVelocity = 50f;
         }
         else
         {
             limits.max = 0;
-            limits.min = Angle * 180f;
-            motor.targetVelocity = -360f;
+            limits.min = Angle ;
+            motor.targetVelocity = -50f;
         }
         joint.motor = motor;
         joint.limits = limits;

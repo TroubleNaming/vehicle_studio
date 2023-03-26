@@ -150,8 +150,8 @@ public class ContraptionManager : MonoBehaviour
                 {
                     item.rigidBody.isKinematic = true;
                 }
-                item.transform.position = item.startPosition;
-                item.transform.rotation = item.startRotation;
+                //item.transform.position = item.startPosition;
+                //item.transform.rotation = item.startRotation;
             }
 
             // Send one last update as soon as the objects are back in their 
@@ -174,6 +174,19 @@ public class ContraptionManager : MonoBehaviour
             if (item.variable != null)
             {
                 item.variable.Value = value;
+            }
+        }
+    }
+    public void SetVariable(float value, string objectname)
+    {
+        foreach (var item in components.Values)
+        {
+            if (item.variable != null)
+            {
+                if (item.variable.GetType().Name == objectname)
+                {
+                    item.variable.Value = value;
+                }
             }
         }
     }
