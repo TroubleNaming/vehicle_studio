@@ -20,6 +20,8 @@ public class ControlPanel : MonoBehaviour, IGraspable, IComponent
     private FollowHelper follow;
     private NetworkContext context;
     private ContraptionManager manager;
+    private GameObject Owner;
+    private GameObject RightHand;
 
     public void Grasp(Hand controller)
     {
@@ -29,6 +31,9 @@ public class ControlPanel : MonoBehaviour, IGraspable, IComponent
     public void Release(Hand controller)
     {
         follow.Release(controller);
+        Owner = controller.transform.parent.gameObject;
+        RightHand = controller.gameObject;
+
     }
 
     private void Awake()
@@ -48,10 +53,28 @@ public class ControlPanel : MonoBehaviour, IGraspable, IComponent
 
     void Update()
     {
+        if (Owner)
+        {
+            var buf_trans = Owner.transform.GetChild(0);
+            var buf_pos = buf_trans.localPosition;
+            buf_pos.z += 1.28f;
+            buf_pos.x += -0.82f;
+            buf_pos.y += -1.11f;
+            var buf_rot = buf_trans.transform.rotation.eulerAngles;
+            buf_rot.x += 11.114f;
+            buf_rot.y += -14.457f;
+            buf_rot.z += 5.843f;
+            transform.rotation = new Quaternion() { eulerAngles = buf_rot};
+            transform.position = buf_trans.TransformPoint(buf_pos);
+            
+            manager.SetVariable((RightHand.transform.localPosition.z - 0.6f) * 180f);
+            SendUpdate((RightHand.transform.position.z - 0.6f) * 180f);
+        }
         if (follow.Update())
         {
             SendUpdate();
         }
+        
     }
 
     public void StartSimulation()
@@ -64,11 +87,11 @@ public class ControlPanel : MonoBehaviour, IGraspable, IComponent
         manager.StopSimulation();
     }
 
-    public void ChangeValue(Single value)
-    {
-        manager.SetVariable(value);
-        SendUpdate(value);
-    }
+    //public void ChangeValue(Single value)
+    //{
+    //    manager.SetVariable(value);
+    //    SendUpdate(value);
+    //}
 
     private struct Message
     {
