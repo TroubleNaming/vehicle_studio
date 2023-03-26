@@ -1,0 +1,48 @@
+Using template 'D:/Program Files/2021.3.16f1/Editor/Data/PlaybackEngines/AndroidPlayer\Apk\UnityManifest.xml'
+
+android.hardware.vulkan.version was added because:
+	One of the graphics devices was Vulkan
+supports-gl-texture elements added because:
+	TextureSupport was not set to generic
+android.permission.INTERNET was added because:
+	UnityEngine.Networking was present in:
+		Unity.InputSystem-FeaturesChecked.txt
+		Unity.Services.Core.Internal-FeaturesChecked.txt
+		Unity.Services.Core.Networking-FeaturesChecked.txt
+		Unity.Services.Core.Telemetry-FeaturesChecked.txt
+	System.Net.Sockets was present in:
+		BouncyCastle.Crypto-FeaturesChecked.txt
+		DnsClient-FeaturesChecked.txt
+		SIPSorcery-FeaturesChecked.txt
+		Ubiq-FeaturesChecked.txt
+		websocket-sharp-FeaturesChecked.txt
+	UnityEngine.Network was present in:
+		Unity.InputSystem-FeaturesChecked.txt
+		Unity.Services.Core.Internal-FeaturesChecked.txt
+		Unity.Services.Core.Networking-FeaturesChecked.txt
+		Unity.Services.Core.Telemetry-FeaturesChecked.txt
+	UnityEngine.WWW was present in:
+		EasyRoads3Dv3-FeaturesChecked.txt
+	UnityEngine.Networking.UnityWebRequest was present in:
+		Unity.Services.Core.Internal-FeaturesChecked.txt
+		Unity.Services.Core.Networking-FeaturesChecked.txt
+		Unity.Services.Core.Telemetry-FeaturesChecked.txt
+android.permission.ACCESS_NETWORK_STATE was added because:
+	UnityEngine.Application::get_internetReachability was present in:
+		Unity.Services.Core.Telemetry-FeaturesChecked.txt
+android.permission.RECORD_AUDIO, android.permission.MODIFY_AUDIO_SETTINGS, android.permission.BLUETOOTH, android.hardware.microphone were added because:
+	UnityEngine.Microphone was present in:
+		Ubiq.Voip.Implementations.Dotnet-FeaturesChecked.txt
+android.hardware.sensor.accelerometer was added because:
+	UnityEngine.Input::get_acceleration was present in:
+		Assembly-CSharp-firstpass-FeaturesChecked.txt
+android.hardware.touchscreen.multitouch, android.hardware.touchscreen.multitouch.distinct were enabled because:
+	UnityEngine.Input::get_touches was present in:
+		Assembly-CSharp-firstpass-FeaturesChecked.txt
+	UnityEngine.Input::GetTouch was present in:
+		Unity.XR.Interaction.Toolkit-FeaturesChecked.txt
+		UnityEngine.UI-FeaturesChecked.txt
+	UnityEngine.Input::get_touchCount was present in:
+		Assembly-CSharp-firstpass-FeaturesChecked.txt
+		Unity.XR.Interaction.Toolkit-FeaturesChecked.txt
+		UnityEngine.UI-FeaturesChecked.txt
